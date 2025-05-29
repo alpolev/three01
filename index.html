@@ -43,17 +43,26 @@
 	const cube2 = new THREE.Mesh( geometry2, material2 );
 	cube2.position.z = -1;
 	scene.add( cube2 );
-	//
+	
+				// lights
+
+				const hemiLight = new THREE.HemisphereLight( 0xffffff, 0x8d8d8d, 3 );
+				hemiLight.position.set( 0, 20, 0 );
+				scene.add( hemiLight );
+
+				const dirLight = new THREE.DirectionalLight( 0xffffff, 3 );
+				dirLight.position.set( 0, 20, 10 );
+				scene.add( dirLight );
 
 				// model
 
-				
+				const loader = new GLTFLoader();
 				loader.load( 'RobotExpressive.glb', function ( gltf ) {
 
 					const model = gltf.scene;
 					scene.add( model );
 
-					//let createGUI( model, gltf.animations );
+					// createGUI( model, gltf.animations );
 
 				}, undefined, function ( e ) {
 
