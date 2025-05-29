@@ -18,6 +18,7 @@
   <body>
    <script type="module">
     import * as THREE from 'three';
+    import { GUI } from 'three/addons/libs/lil-gui.module.min.js';
     import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
     import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 
@@ -56,13 +57,13 @@
 
 				// model
 
-				//const loader = new GLTFLoader();
+				const loader = new GLTFLoader();
 				loader.load( 'RobotExpressive.glb', function ( gltf ) {
 
 					const model = gltf.scene;
 					scene.add( model );
 
-					// createGUI( model, gltf.animations );
+					createGUI( model, gltf.animations );
 
 				}, undefined, function ( e ) {
 
